@@ -1,4 +1,5 @@
 <?php
+    require 'includes/config.php';
     require '_head.php';
     require '_navbar.php';
 ?>
