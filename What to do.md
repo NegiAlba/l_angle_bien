@@ -13,3 +13,13 @@
 10. Modification d'un produit
 11. Suppression d'un produit
 12. Factorisation/Améliorations
+
+## Propositions d'améliorations
+
+- Créer un système de catégories pour les produits
+- Mettre en place un système de gestion de stocks
+- Soigner l'UX/UI (Messages d'erreur pour les utilisateurs)
+- En se basant sur le projet ledger, réaliser un export CSV de tous les produits présents dans la BDD
+- Transformer les opérations CRUD en fonctions
+- Mettre en place un système d'imputation des modifications ("C'est l'utilisateur xxx qui a modifié le fichier dernièrement")
+- Déployer le projet en ligne avec [AlwaysData](https://www.alwaysdata.com/fr/) ou[WebHost](https://fr.000webhost.com/)
