@@ -16,7 +16,7 @@
         <form action="signUp_post.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
