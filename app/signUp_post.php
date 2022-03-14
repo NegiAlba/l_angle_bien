@@ -5,23 +5,23 @@
     // print_r($_POST);
     // echo '</pre>';
 
-    //! Etape du processing formulaire
+    // ! Etape du processing formulaire
 
-    //? Vérifier que tous les champs requis soient remplis (on vérifie leur existence)
+    // ? Vérifier que tous les champs requis soient remplis (on vérifie leur existence)
     if (empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password2'])) {
         echo 'Missing input in the sign up form !';
     } else {
-        //? Assainir les variables afin de préparer l'inscription
-        //* trim permet d'enlever les espaces avant et après la chaine de caractères.
-        //* htmlspecialchars permet de transformer tout le contenu HTML en chaines de caractères qui n'exécutent pas de code
-        //* strip_tags permet de supprimer les balises HTML contenu dans l'input totalement.
+        // ? Assainir les variables afin de préparer l'inscription
+        // * trim permet d'enlever les espaces avant et après la chaine de caractères.
+        // * htmlspecialchars permet de transformer tout le contenu HTML en chaines de caractères qui n'exécutent pas de code
+        // * strip_tags permet de supprimer les balises HTML contenu dans l'input totalement.
         $email = trim(htmlspecialchars($_POST['email']));
         $username = trim(htmlspecialchars($_POST['username']));
         $password = trim(htmlspecialchars($_POST['password']));
         $password2 = trim(htmlspecialchars($_POST['password2']));
     }
 
-    //? Vérifier la validité des inputs de l'utilisateur
+    // ? Vérifier la validité des inputs de l'utilisateur
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo 'Email address is invalid...';
     }
@@ -34,13 +34,13 @@
         echo 'Password is invalid...';
     }
 
-    //? Les requêtes préparées en PDO
-    //* Les requêtes préparées fonctionnent deux étapes :
-    //* D'abord on fait la déclaraction de préparation avec prepare() et une requête SQL qui contient des marqueurs
-    //* Ensuite on attache à ce marqueur une valeur provenant d'une variable (bindValue())
-    //* On peut ensuite executer la requête sur la BDD (execute())
+    // ? Les requêtes préparées en PDO
+    // * Les requêtes préparées fonctionnent deux étapes :
+    // * D'abord on fait la déclaraction de préparation avec prepare() et une requête SQL qui contient des marqueurs
+    // * Ensuite on attache à ce marqueur une valeur provenant d'une variable (bindValue())
+    // * On peut ensuite executer la requête sur la BDD (execute())
 
-    //? On vérifie l'unicité de l'email et du username avec un SELECT COUNT
+    // ? On vérifie l'unicité de l'email et du username avec un SELECT COUNT
     try {
         $sqlVerif = 'SELECT COUNT(*) FROM users WHERE email = :email OR username = :username';
         $reqVerif = $db->prepare($sqlVerif);
@@ -57,12 +57,12 @@
         echo 'This email or this username already exists';
     }
 
-    //? Vérifier concordance des mdp
+    // ? Vérifier concordance des mdp
     if ($password !== $password2) {
         echo 'The passwords are not matching';
     }
 
-    //! Fin des vérifications, insertion dans la BDD
+    // ! Fin des vérifications, insertion dans la BDD
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     try {

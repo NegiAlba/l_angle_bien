@@ -1,12 +1,7 @@
 <?php
 
 declare(strict_types=1);
-
 require 'includes/config.php';
-
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
 
 // ? Première vérification : Mes champs ont bien été remplis
 if (in_array('', $_POST)) {
@@ -62,6 +57,6 @@ if (!password_verify($password, $user['password'])) {
 } else {
     $_SESSION['user'] = $user['username'];
     $_SESSION['id'] = $user['users_id'];
-    echo 'Sign-in has been a success !';
+    header('Location:index.php');
     exit();
 }
