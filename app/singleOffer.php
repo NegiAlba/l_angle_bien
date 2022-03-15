@@ -1,8 +1,12 @@
 <?php
-$auth = true;
+    $auth = true;
     require '_head.php';
     require '_navbar.php';
     require '_sqlFetchSingle.php';
+
+    echo '<pre>';
+    print_r($offer);
+    echo '</pre>';
 ?>
 <?php if (!empty($offer)) {?>
 <div class="card m-4" style="width:30%;">
@@ -12,8 +16,14 @@ $auth = true;
         <hr>
         <p>Description : <?php echo $offer['description']; ?></p>
         <div class="d-flex justify-content-around">
-            <a href="#" class="btn btn-outline-success col-5">Contact seller</a>
-            <a href="#" class="btn btn-outline-warning col-5">Details</a>
+            <?php if ($user === $offer['author_id']) { ?>
+            <form action="deleteOffer_post.php" method="post">
+                <input type="hidden" name="offers_id" value="<?php echo $offer['offers_id']; ?>">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['token']; ?>">
+                <input type="submit" class="form-control btn btn-outline-danger col-4" value="Delete offer" />
+            </form>
+            <?php } ?>
+            <a href="#" class="btn btn-outline-warning col-4">Details</a>
         </div>
     </div>
 </div>

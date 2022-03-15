@@ -57,6 +57,7 @@ if (!password_verify($password, $user['password'])) {
 } else {
     $_SESSION['user'] = $user['username'];
     $_SESSION['id'] = $user['users_id'];
+    $_SESSION['token'] = md5(uniqid('csrf', true));
     header('Location:index.php');
     exit();
 }

@@ -19,6 +19,21 @@ if (empty($_POST['name']) || empty($_POST['description']) || empty($_POST['price
     $price = htmlspecialchars(trim($_POST['price']));
 }
 
+if ($price <= 0) {
+    header('Location:addOffers.php?error=invalidPrice');
+    exit();
+}
+
+if (strlen($name) < 3) {
+    header('Location:addOffers.php?error=invalidName');
+    exit();
+}
+
+if (!$category < 0) {
+    header('Location:addOffers.php?error=invalidCategory');
+    exit();
+}
+
 // Requête SQL d'insertion
 try {
     $sqlInsertOffer = 'INSERT INTO offers (name,description,category_id,price, author_id) VALUES (:name, :description, :category_id, :price, :author_id)';

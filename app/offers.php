@@ -3,6 +3,10 @@
     require '_head.php';
     require '_navbar.php';
     require '_sqlFetchOffers.php';
+
+    echo '<pre>';
+    print_r($_SESSION);
+    echo '</pre>';
 ?>
 <?php if (!empty($offers)) {
     foreach ($offers as $offer) { ?>
@@ -12,7 +16,7 @@
         <p>Price : <?php echo $offer['price']; ?> €</p>
         <hr>
         <div class="d-flex justify-content-around">
-            <a href="#" class="btn btn-outline-success col-5">Contact seller</a>
+            <a href="editOffer.php?id=<?php echo $offer['offers_id']; ?>" class="btn btn-outline-success col-5">Edit</a>
             <a href="singleOffer.php?id=<?php echo $offer['offers_id']; ?>"
                 class="btn btn-outline-warning col-5">Details</a>
         </div>

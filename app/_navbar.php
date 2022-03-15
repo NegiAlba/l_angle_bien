@@ -16,6 +16,9 @@
                     </li>
                     <?php if ($_SESSION['user']) { ?>
                     <li class="nav-item">
+                        <a class="nav-link" href="addOffers.php">Add offers</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
