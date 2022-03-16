@@ -37,6 +37,12 @@ if (!$category < 0) {
     exit();
 }
 
+// ! EDIT Avec une image
+// ? Il va falloir si la personne a ajouté une image
+// ? Si il en a rajouté une, c'est qu'il souhaite modifier l'image d'origine et on va réaliser l'upload de cette image
+// ? Sinon il souhaite conserver l'ancienne image.
+// ? Il faudra récupérer les infos de l'ancienne image et les renvoyer dans le formulaire ou alors faire une requête SQL sans mention de l'image
+
 try {
     $sqlUpdateOffer = 'UPDATE offers SET name=:name, description=:description, price=:price, category_id=:category_id WHERE offers_id=:offers_id AND author_id=:author_id';
     $reqUpdateOffer = $db->prepare($sqlUpdateOffer);

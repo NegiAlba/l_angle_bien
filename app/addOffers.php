@@ -29,6 +29,11 @@ $auth = true;
             <input type="number" min="1" step="0.1" class="form-control" id="price" name="price" required>
         </div>
         <div class="mb-3">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control" type="file" id="formFile" name="image"
+                accept="image/png, image/jpeg, image/jpg, image/gif">
+        </div>
+        <div class="mb-3">
             <button type="submit" class="btn btn-outline-success btn-lg">Add my offer</button>
         </div>
 
@@ -48,5 +53,6 @@ $auth = true;
  * TODO : Vérifier la validité des inputs pour l'inclusion dans la BDD
  * TODO : Vérifier la base de données pour la possibilité d'inclusion (si le produit existe déja, ce ne sera pas nécessaire pour ce projet)
  * TODO : Récupérer les données après introduction (pour vérification)
+ * TODO : Pour l'upload de fichiers, ajouter enctype="multipart/form-data" et s'assurer d'avoir un input type file
  */
 ?>

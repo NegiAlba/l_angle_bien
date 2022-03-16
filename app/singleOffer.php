@@ -10,6 +10,7 @@
 ?>
 <?php if (!empty($offer)) {?>
 <div class="card m-4" style="width:30%;">
+    <img src="<?php echo $offer['image']; ?>" alt="<?php echo $offer['description']; ?>" class="img-fluid">
     <div class="card-body">
         <h3 class="card-title"><?php echo $offer['name']; ?></h3>
         <p>Price : <?php echo $offer['price']; ?> €</p>
